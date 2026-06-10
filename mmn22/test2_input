@@ -1,0 +1,83 @@
+print_comp A
+
+read_comp A, 5, -3
+print_comp A
+
+read_comp B, -12.5, 7
+print_comp B
+
+add_comp A, B
+sub_comp B, A
+
+mult_comp_real A, 2
+mult_comp_img B, -3
+mult_comp_comp A, B
+
+abs_comp A
+abs_comp B
+
+
+read_comp,
+read_comp A,
+read_comp A,,
+read_comp A,,5
+read_comp A,5,
+read_comp A,5,,6
+read_comp A 5,6
+read_comp A,5 6
+
+print_comp
+print_comp ,
+print_comp G
+print_comp Alpha
+print_comp A,B
+print_comp A extra
+
+add_comp A
+add_comp A,
+add_comp A,,
+add_comp A B
+add_comp A,G
+add_comp A,5
+add_comp A,B,C
+
+sub_comp ,A
+sub_comp A,
+sub_comp A,,B
+sub_comp A B
+sub_comp Alpha,B
+
+mult_comp_real A
+mult_comp_real A,
+mult_comp_real A,,5
+mult_comp_real A 5
+mult_comp_real A,five
+mult_comp_real A,.5
+mult_comp_real A,5..2
+mult_comp_real A,5-2
+
+mult_comp_img B,abc
+mult_comp_img B,--
+mult_comp_img B,+
+
+mult_comp_comp A
+mult_comp_comp A,
+mult_comp_comp A,B,C
+mult_comp_comp A,1
+mult_comp_comp A,XYZ
+
+abs_comp
+abs_comp ,
+abs_comp 5
+abs_comp A,B
+
+stop now
+stop,
+stop extra text
+
+unknown_command
+read_comp123 A,5,6
+
+read_comp C, 0, -1
+print_comp C
+

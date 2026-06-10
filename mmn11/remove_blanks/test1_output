@@ -1,0 +1,7 @@
+Please enter a string:
+The Input string:
+"aaa bbb ccc d e f "
+The string as received by the function:
+"aaa bbb ccc d e f "
+The string at the end of the function:
+"aaabbbcccdef"

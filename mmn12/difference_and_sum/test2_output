@@ -1,0 +1,34 @@
+Enter two numbers separeted by a space: 
+The original numbers received are: -38, -26
+Calling function findDifferenceAndSum:
+The difference is: 12
+The sum is: -64
+Calling macro DIFF: The difference is: 12
+Calling macro SUM: The sum is: -64
+
+Enter two numbers separeted by a space: 
+The original numbers received are: 14, 17
+Calling function findDifferenceAndSum:
+The difference is: 3
+The sum is: 31
+Calling macro DIFF: The difference is: 3
+Calling macro SUM: The sum is: 31
+
+Enter two numbers separeted by a space: 
+The original numbers received are: 0, 0
+Calling function findDifferenceAndSum:
+The difference is: 0
+The sum is: 0
+Calling macro DIFF: The difference is: 0
+Calling macro SUM: The sum is: 0
+
+Enter two numbers separeted by a space: 
+The original numbers received are: -2, -16
+Calling function findDifferenceAndSum:
+The difference is: 14
+The sum is: -18
+Calling macro DIFF: The difference is: 14
+Calling macro SUM: The sum is: -18
+
+Enter two numbers separeted by a space: 
+The array is: -38 -26 14 17 0 0 -2 -16 

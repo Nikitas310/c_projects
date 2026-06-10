@@ -1,47 +1,73 @@
 #include <stdio.h>
 #include <ctype.h>
 
-#define MAX_LENGTH 64
+#define MAX_LENGTH 256  /* Maximum length of input string */
 
-void remove_blanks(char line[MAX_LENGTH]) {
-    int i = 0;
-    int last_checked = 0;
+/*
+ * Function: remove_blanks
+ * -----------------------
+ * Removes all whitespace characters (spaces, tabs, newlines)
+ * from the given string.
+ *
+ * The function scans the string character by character.
+ * Each non-whitespace character is copied to the front of the string.
+ * The result is a compact string without blanks.
+ *
+ * Parameters:
+ *   line - input string (modified in-place)
+ *
+ * Return value:
+ *   None
+ */
+void remove_blanks(char line[]) {
+    int read_index = 0;     /* index for scanning original string */
+    int write_index = 0;    /* index for writing cleaned string */
 
+    /* Print original string */
     printf("The string as received by the function:\n");
-    printf("%s\n", line);
+    printf("\"%s\"\n", line);
 
-    while (line[i] != '\0') {
-        if (! isspace(line[i])) {
-            line[last_checked++] = line[i];
+    /* Iterate over the string */
+    while (line[read_index] != '\0') {
+         /* If current character is not whitespace, keep it */
+        if (! isspace(line[read_index])) {
+            line[write_index] = line[read_index];
+            write_index++;
         }
-        i++;
+        read_index++;
     }
-    line[last_checked] = '\0';
+    /* Add string terminator */
+    line[write_index] = '\0';
 
-    printf("\n");
+    /* Print processed string */
     printf("The string at the end of the function:\n");
-    printf("%s\n", line);
-
-    printf("\n");
+    printf("\"%s\"\n", line);
 }
 
+/*
+ * Function: main
+ * --------------
+ * Reads a string from standard input and removes all whitespace
+ * characters using the remove_blanks function.
+ *
+ * The program demonstrates string processing in C.
+ *
+ * Return value:
+ *   0 on success
+ */
 int main()
 {
-    char line [MAX_LENGTH];
-    char c;
-    int i;
+    char line [MAX_LENGTH] = {'\0'};    /* input buffer */
 
-    for (i = 0; i < MAX_LENGTH; ++i){
-        line[i] = '\0';
-    }
+    printf("Please enter a string:\n");
 
-    printf("The Input string:\n");
+    /* Read input from user */
+    fgets(line, MAX_LENGTH, stdin);
 
-    i = 0;
-    while ((c = getchar()) != '\n' && c != EOF && i < MAX_LENGTH - 1) {
-        line[i++] = c;
-    }
+    /* Print original input */
+    printf("The Input string:\n\"%s\"\n", line);
 
+    /* Remove blanks from the string */
     remove_blanks(line);
 
     return 0;

@@ -1,0 +1,9 @@
+Please enter a string:
+The Input string:
+"This is     a sample text 1 2 '{}.
+"
+The string as received by the function:
+"This is     a sample text 1 2 '{}.
+"
+The string at the end of the function:
+"Thisisasampletext12'{}."

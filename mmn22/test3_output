@@ -1,0 +1,16 @@
+Please enter a command:
+print_comp A
+0.00 + (0.00)i
+Please enter a command:
+print_comp B
+0.00 + (0.00)i
+Please enter a command:
+print_comp C
+0.00 + (0.00)i
+Please enter a command:
+read_comp A, 45.1, -23.75
+Please enter a command:
+print_comp A
+45.10 + (-23.75)i
+Please enter a command:
+stop

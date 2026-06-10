@@ -1,0 +1,248 @@
+Please enter a command:
+print_comp A
+0.00 + (0.00)i
+Please enter a command:
+
+Undefined command name
+Please enter a command:
+read_comp A, 5, -3
+Please enter a command:
+print_comp A
+5.00 + (-3.00)i
+Please enter a command:
+
+Undefined command name
+Please enter a command:
+read_comp B, -12.5, 7
+Please enter a command:
+print_comp B
+-12.50 + (7.00)i
+Please enter a command:
+
+Undefined command name
+Please enter a command:
+add_comp A, B
+-7.50 + (4.00)i
+Please enter a command:
+sub_comp B, A
+-17.50 + (10.00)i
+Please enter a command:
+
+Undefined command name
+Please enter a command:
+mult_comp_real A, 2
+10.00 + (-6.00)i
+Please enter a command:
+mult_comp_img B, -3
+21.00 + (37.50)i
+Please enter a command:
+mult_comp_comp A, B
+-41.50 + (72.50)i
+Please enter a command:
+
+Undefined command name
+Please enter a command:
+abs_comp A
+5.83
+Please enter a command:
+abs_comp B
+14.33
+Please enter a command:
+
+Undefined command name
+Please enter a command:
+
+Undefined command name
+Please enter a command:
+read_comp,
+Illegal comma
+Please enter a command:
+read_comp A,
+Missing parameter
+Please enter a command:
+read_comp A,,
+Multiple consecutive commas
+Please enter a command:
+read_comp A,,5
+Multiple consecutive commas
+Please enter a command:
+read_comp A,5,
+Missing parameter
+Please enter a command:
+read_comp A,5,,6
+Multiple consecutive commas
+Please enter a command:
+read_comp A 5,6
+Missing comma
+Please enter a command:
+read_comp A,5 6
+Missing comma
+Please enter a command:
+
+Undefined command name
+Please enter a command:
+print_comp
+Missing parameter
+Please enter a command:
+print_comp ,
+Missing parameter
+Please enter a command:
+print_comp G
+Undefined complex variable
+Please enter a command:
+print_comp Alpha
+Undefined complex variable
+Please enter a command:
+print_comp A,B
+Extraneous text after end of command
+Please enter a command:
+print_comp A extra
+Extraneous text after end of command
+Please enter a command:
+
+Undefined command name
+Please enter a command:
+add_comp A
+Missing parameter
+Please enter a command:
+add_comp A,
+Missing parameter
+Please enter a command:
+add_comp A,,
+Multiple consecutive commas
+Please enter a command:
+add_comp A B
+Missing comma
+Please enter a command:
+add_comp A,G
+Undefined complex variable
+Please enter a command:
+add_comp A,5
+Undefined complex variable
+Please enter a command:
+add_comp A,B,C
+Extraneous text after end of command
+Please enter a command:
+
+Undefined command name
+Please enter a command:
+sub_comp ,A
+Missing parameter
+Please enter a command:
+sub_comp A,
+Missing parameter
+Please enter a command:
+sub_comp A,,B
+Multiple consecutive commas
+Please enter a command:
+sub_comp A B
+Missing comma
+Please enter a command:
+sub_comp Alpha,B
+Undefined complex variable
+Please enter a command:
+
+Undefined command name
+Please enter a command:
+mult_comp_real A
+Missing parameter
+Please enter a command:
+mult_comp_real A,
+Missing parameter
+Please enter a command:
+mult_comp_real A,,5
+Multiple consecutive commas
+Please enter a command:
+mult_comp_real A 5
+Missing comma
+Please enter a command:
+mult_comp_real A,five
+Invalid parameter - not a number
+Please enter a command:
+mult_comp_real A,.5
+Invalid parameter - not a number
+Please enter a command:
+mult_comp_real A,5..2
+Invalid parameter - not a number
+Please enter a command:
+mult_comp_real A,5-2
+Invalid parameter - not a number
+Please enter a command:
+
+Undefined command name
+Please enter a command:
+mult_comp_img B,abc
+Invalid parameter - not a number
+Please enter a command:
+mult_comp_img B,--
+Invalid parameter - not a number
+Please enter a command:
+mult_comp_img B,+
+Invalid parameter - not a number
+Please enter a command:
+
+Undefined command name
+Please enter a command:
+mult_comp_comp A
+Missing parameter
+Please enter a command:
+mult_comp_comp A,
+Missing parameter
+Please enter a command:
+mult_comp_comp A,B,C
+Extraneous text after end of command
+Please enter a command:
+mult_comp_comp A,1
+Undefined complex variable
+Please enter a command:
+mult_comp_comp A,XYZ
+Undefined complex variable
+Please enter a command:
+
+Undefined command name
+Please enter a command:
+abs_comp
+Missing parameter
+Please enter a command:
+abs_comp ,
+Missing parameter
+Please enter a command:
+abs_comp 5
+Undefined complex variable
+Please enter a command:
+abs_comp A,B
+Extraneous text after end of command
+Please enter a command:
+
+Undefined command name
+Please enter a command:
+stop now
+Extraneous text after end of command
+Please enter a command:
+stop,
+Illegal comma
+Please enter a command:
+stop extra text
+Extraneous text after end of command
+Please enter a command:
+
+Undefined command name
+Please enter a command:
+unknown_command
+Undefined command name
+Please enter a command:
+read_comp123 A,5,6
+Undefined command name
+Please enter a command:
+
+Undefined command name
+Please enter a command:
+read_comp C, 0, -1
+Please enter a command:
+print_comp C
+0.00 + (-1.00)i
+Please enter a command:
+
+Undefined command name
+Please enter a command:
+Error: missing stop command
