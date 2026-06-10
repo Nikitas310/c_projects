@@ -60,6 +60,25 @@ CodeWord *find_code_word_by_address(
     return 0;
 }
 
+int has_unresolved_code_words(
+    CodeImage *image
+)
+{
+    int i;
+
+    if (image == 0) {
+        return 0;
+    }
+
+    for (i = 0; i < image->count; i++) {
+        if (image->items[i].unresolved_type != UNRESOLVED_NONE) {
+            return 1;
+        }
+    }
+
+    return 0;
+}
+
 void clear_code_image(
     CodeImage *image
 )

@@ -16,6 +16,8 @@ TEST_SECOND_PASS_TARGET = test_second_pass
 TEST_SECOND_PASS_OBJS = test_second_pass.o second_pass.o first_pass.o data_image.o code_image.o external_usage.o parser.o utils.o symbol_table.o opcode_table.o errors.o
 TEST_OUTPUT_TARGET = test_output_files
 TEST_OUTPUT_OBJS = test_output_files.o output_files.o second_pass.o first_pass.o data_image.o code_image.o external_usage.o parser.o utils.o symbol_table.o opcode_table.o errors.o
+TEST_VALIDATION_TARGET = test_validation_errors
+TEST_VALIDATION_OBJS = test_validation_errors.o assembler.o preassembler.o first_pass.o second_pass.o output_files.o data_image.o code_image.o external_usage.o parser.o utils.o symbol_table.o macro_table.o opcode_table.o errors.o
 
 all: $(TARGET)
 
@@ -88,7 +90,10 @@ test_second_pass.o: test_second_pass.c second_pass.h first_pass.h assembler.h ex
 test_output_files.o: test_output_files.c output_files.h first_pass.h second_pass.h assembler.h
 	$(CC) $(CFLAGS) -c test_output_files.c
 
-test: $(TEST_TARGET) $(TEST_PHASE2_TARGET) $(TEST_PARSER_TARGET) $(TEST_FIRST_PASS_TARGET) $(TEST_FIRST_PASS_INSTRUCTIONS_TARGET) $(TEST_SECOND_PASS_TARGET) $(TEST_OUTPUT_TARGET)
+test_validation_errors.o: test_validation_errors.c assembler.h assembler_module.h first_pass.h second_pass.h output_files.h
+	$(CC) $(CFLAGS) -c test_validation_errors.c
+
+test: $(TEST_TARGET) $(TEST_PHASE2_TARGET) $(TEST_PARSER_TARGET) $(TEST_FIRST_PASS_TARGET) $(TEST_FIRST_PASS_INSTRUCTIONS_TARGET) $(TEST_SECOND_PASS_TARGET) $(TEST_OUTPUT_TARGET) $(TEST_VALIDATION_TARGET)
 	./$(TEST_TARGET)
 	./$(TEST_PHASE2_TARGET)
 	./$(TEST_PARSER_TARGET)
@@ -96,6 +101,7 @@ test: $(TEST_TARGET) $(TEST_PHASE2_TARGET) $(TEST_PARSER_TARGET) $(TEST_FIRST_PA
 	./$(TEST_FIRST_PASS_INSTRUCTIONS_TARGET)
 	./$(TEST_SECOND_PASS_TARGET)
 	./$(TEST_OUTPUT_TARGET)
+	./$(TEST_VALIDATION_TARGET)
 
 $(TEST_TARGET): $(TEST_OBJS)
 	$(CC) $(CFLAGS) -o $(TEST_TARGET) $(TEST_OBJS)
@@ -118,5 +124,8 @@ $(TEST_SECOND_PASS_TARGET): $(TEST_SECOND_PASS_OBJS)
 $(TEST_OUTPUT_TARGET): $(TEST_OUTPUT_OBJS)
 	$(CC) $(CFLAGS) -o $(TEST_OUTPUT_TARGET) $(TEST_OUTPUT_OBJS)
 
+$(TEST_VALIDATION_TARGET): $(TEST_VALIDATION_OBJS)
+	$(CC) $(CFLAGS) -o $(TEST_VALIDATION_TARGET) $(TEST_VALIDATION_OBJS)
+
 clean:
-	rm -f $(TARGET) $(TEST_TARGET) $(TEST_PHASE2_TARGET) $(TEST_PARSER_TARGET) $(TEST_FIRST_PASS_TARGET) $(TEST_FIRST_PASS_INSTRUCTIONS_TARGET) $(TEST_SECOND_PASS_TARGET) $(TEST_OUTPUT_TARGET) *.o
+	rm -f $(TARGET) $(TEST_TARGET) $(TEST_PHASE2_TARGET) $(TEST_PARSER_TARGET) $(TEST_FIRST_PASS_TARGET) $(TEST_FIRST_PASS_INSTRUCTIONS_TARGET) $(TEST_SECOND_PASS_TARGET) $(TEST_OUTPUT_TARGET) $(TEST_VALIDATION_TARGET) *.o

@@ -168,6 +168,24 @@ static void resolve_instruction(
     }
 }
 
+static void discard_rest_of_line(
+    FILE *file
+)
+{
+    int ch;
+
+    do {
+        ch = fgetc(file);
+    } while (ch != '\n' && ch != EOF);
+}
+
+static int line_needs_discard(
+    const char *line
+)
+{
+    return strchr(line, '\n') == 0 && strlen(line) > MAX_LINE_LENGTH;
+}
+
 int run_second_pass(
     const char *base_name,
     FirstPassContext *context
@@ -206,6 +224,9 @@ int run_second_pass(
         line_number++;
 
         if (!parse_line(line, &parsed, line_number)) {
+            if (line_needs_discard(line)) {
+                discard_rest_of_line(file);
+            }
             context->has_errors = 1;
             continue;
         }
@@ -228,5 +249,10 @@ int run_second_pass(
     }
 
     fclose(file);
+    if (!context->has_errors && has_unresolved_code_words(&context->code_image)) {
+        report_error(line_number, ERROR_INTERNAL, "unresolved code words remain");
+        context->has_errors = 1;
+    }
+
     return !context->has_errors;
 }

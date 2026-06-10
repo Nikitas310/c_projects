@@ -227,6 +227,7 @@ static int process_asciz_directive(
     char *operand;
     int length;
     int i;
+    int quote_count;
 
     if (parsed->operand_count != 1) {
         report_error(line_number, ERROR_INTERNAL, "invalid asciz operand count");
@@ -237,6 +238,19 @@ static int process_asciz_directive(
     operand = parsed->operands[0];
     length = (int)strlen(operand);
     if (length < 2 || operand[0] != '"' || operand[length - 1] != '"') {
+        report_error(line_number, ERROR_INTERNAL, "invalid asciz string");
+        context->has_errors = 1;
+        return 0;
+    }
+
+    quote_count = 0;
+    for (i = 0; i < length; i++) {
+        if (operand[i] == '"') {
+            quote_count++;
+        }
+    }
+
+    if (quote_count != 2) {
         report_error(line_number, ERROR_INTERNAL, "invalid asciz string");
         context->has_errors = 1;
         return 0;
@@ -669,6 +683,24 @@ static void process_instruction(
     context->ic += INSTRUCTION_SIZE;
 }
 
+static void discard_rest_of_line(
+    FILE *file
+)
+{
+    int ch;
+
+    do {
+        ch = fgetc(file);
+    } while (ch != '\n' && ch != EOF);
+}
+
+static int line_needs_discard(
+    const char *line
+)
+{
+    return strchr(line, '\n') == 0 && strlen(line) > MAX_LINE_LENGTH;
+}
+
 void init_first_pass_context(
     FirstPassContext *context
 )
@@ -743,6 +775,9 @@ static int run_first_pass_file(
         line_number++;
 
         if (!parse_line(line, &parsed, line_number)) {
+            if (line_needs_discard(line)) {
+                discard_rest_of_line(file);
+            }
             context->has_errors = 1;
             continue;
         }

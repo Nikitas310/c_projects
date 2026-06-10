@@ -188,7 +188,8 @@ int generate_output_files(
     FirstPassContext *context
 )
 {
-    if (base_name == 0 || context == 0 || context->has_errors != 0) {
+    if (base_name == 0 || context == 0 || context->has_errors != 0 ||
+        has_unresolved_code_words(&context->code_image)) {
         if (base_name != 0) {
             remove_output_files(base_name);
         }

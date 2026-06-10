@@ -39,6 +39,10 @@ CodeWord *find_code_word_by_address(
     int address
 );
 
+int has_unresolved_code_words(
+    CodeImage *image
+);
+
 void clear_code_image(
     CodeImage *image
 );
